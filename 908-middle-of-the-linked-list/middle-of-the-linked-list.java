@@ -10,7 +10,6 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-        int n = 0;
         ListNode slow = head,fast = head;
         while(fast!=null && fast.next!=null){
             slow = slow.next;
