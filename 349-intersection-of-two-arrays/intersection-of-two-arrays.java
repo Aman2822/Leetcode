@@ -2,6 +2,7 @@ class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
+        
         Set<Integer> resultSet = new HashSet<>();
         int i = 0;
         int j = 0;
