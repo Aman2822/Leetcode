@@ -1,6 +1,6 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int row = matrix.length;
+      /*  int row = matrix.length;
         if(row == 0){
             return false;
         }
@@ -8,11 +8,11 @@ class Solution {
             if(column == 0){
                 return false;
             }
-        }
+        }*/
         int start = 0;
-        int end = column-1;
+        int end = matrix[0].length-1; 
 
-        while(start<row && end>=0){
+        while(start<matrix.length && end>=0){
             if(matrix[start][end] == target){
                 return true;
             }
