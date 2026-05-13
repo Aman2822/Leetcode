@@ -18,8 +18,6 @@ public:
     }
 
 
-
-
     int minimumEffort(vector<vector<int>>& tasks) {
         int n = tasks.size();
 
