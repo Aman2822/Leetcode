@@ -8,12 +8,7 @@ public:
         int max_altitude = 0;
 
         for(int i = 0 ; i < n;i++){
-            if(i==0){
-                altitude[i+1] = gain[i];
-            }
-            else{
-                altitude[i+1] = altitude[i] + gain[i];
-            }
+            altitude[i+1] = altitude[i] + gain[i];
             max_altitude = max(max_altitude , altitude[i+1]);
            
         }       
