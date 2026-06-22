@@ -2,16 +2,27 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int  n = nums.size();
-        int i=0, j = 1;
 
-        for(int i = 0 ; i< n; i++){
-            for(int j = i+1 ; j < n ;j++){
-                if(nums[i] + nums[j] == target){
-                    return {i,j};
-                }
-            }
+        // for(int i = 0 ; i< n; i++){
+        //     for(int j = i+1 ; j < n ;j++){
+        //         if(nums[i] + nums[j] == target){
+        //             return {i,j};
+        //         }
+        //     }
             
+        // }
+        // return {};
+        
+        //Hashing
+        map<int,int> mpp;
+        for(int i = 0 ;i < n; i++){
+            int num = nums[i];
+            int needed = target - num;
+            if(mpp.find(needed) != mpp.end()){
+                return {mpp[needed] , i};
+            }
+            mpp[num] = i;
         }
-        return {i,j};
+        return {-1,-1};
     }
 };
