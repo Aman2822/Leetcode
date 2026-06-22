@@ -14,7 +14,7 @@ public:
         // return {};
         
         //Hashing
-        map<int,int> mpp;
+        unordered_map<int,int> mpp;
         for(int i = 0 ;i < n; i++){
             int num = nums[i];
             int needed = target - num;
