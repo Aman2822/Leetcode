@@ -11,14 +11,11 @@ public:
         }
 
         for(auto it : mpp){
-            int element  = it.first;
-            int maj_element = it.second;
-
-            if(maj_element > n/2){
+            if(it.second > n/2){
                 return it.first;
             }
         }
-       return {};
+       return -1;
        
     }
 };
