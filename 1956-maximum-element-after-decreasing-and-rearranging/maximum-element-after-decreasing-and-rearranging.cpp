@@ -17,10 +17,7 @@ public:
             } 
 
         }
-        int max_El = INT_MIN;
-        for(int i = 0 ; i < n ; i++){
-            max_El = max(max_El, arr[i]);
-        }
-        return max_El;
+        
+        return arr[n - 1];
     }
 };
