@@ -49,7 +49,7 @@ public:
 
            int numBefore  = (l == 0) ? 0 : numberUpto[l-1];
 
-           ll x = (numberUpto[r] - (numBefore * power[k] % MOD) + MOD ) % MOD;          
+           ll x = (numberUpto[r] - (numBefore * power[k] % MOD)  + MOD) % MOD;          
 
            result[i] = (int)((x * sum) % MOD);
         }
