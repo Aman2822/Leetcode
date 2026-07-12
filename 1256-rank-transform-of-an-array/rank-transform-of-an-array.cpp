@@ -9,23 +9,15 @@ public:
         if(n == 0) return {};
 
         int m = temp.size();
-        int assign  = 1;
+        int rank  = 1;
         
-        int org_temp = temp[0] ;
+        mpp[temp[0]] = rank;
   
-        for(int i = 0 ; i < m ; i++){
-            if(i == 0){
-               temp[0] = 1;
-            }
-           else if(org_temp!= temp[i]){
-             assign++;
-             org_temp = temp[i];
-             temp[i] = assign;
+        for(int i = 1 ; i < m ; i++){
+            if(temp[i-1]!= temp[i]){
+             rank++;
            }
-           else{
-            temp[i] = assign;
-           }    
-           mpp[org_temp] = assign; 
+           mpp[temp[i]] = rank; 
         }
 
         for(int i = 0 ; i < n ;i++){
