@@ -13,7 +13,7 @@ public:
             if(nums[i] <= rem_k)  rem_k -=nums[i];
             else if(nums[i] > rem_k){
                 ll shortage = nums[i] - rem_k;
-                ll count = (1LL*shortage+temp-1)/temp;         //Ceil value
+                ll count = (shortage+temp-1)/temp;         //Ceil value
                 rem_k += count * temp;
                 ll start_cost = opn_count + 1 , end_cost = opn_count + count;
                 ll step_cost = (ll)(((__int128)count * (start_cost + end_cost) / 2) % MOD);
