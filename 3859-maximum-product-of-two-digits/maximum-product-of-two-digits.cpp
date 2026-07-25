@@ -10,5 +10,6 @@ public:
 
         return last_digit * second_last_digit;
 
+
     }
 };
