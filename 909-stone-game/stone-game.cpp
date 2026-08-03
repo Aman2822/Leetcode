@@ -24,8 +24,8 @@ public:
             }
         }
 
-        if(a_cnt > b_cnt ) return true;
-        else return false;
+        if(a_cnt < b_cnt ) return false;
+        else return true;
 
 
     }
