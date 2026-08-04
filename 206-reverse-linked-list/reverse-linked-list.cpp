@@ -11,25 +11,44 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if(head == NULL){
-            return NULL;
-        }
-        ListNode* temp = head;
-        stack<int> st;
+
+        //Using stack - brute force approach
+
+        // if(head == NULL){
+        //     return NULL;
+        // }
+        // ListNode* temp = head;
+        // stack<int> st;
+
+        // while(temp != NULL){
+        //     st.push(temp->val);
+        //     temp = temp->next;
+        // }
+
+        // ListNode* temp1 = head;
+        // while(temp1 != NULL){
+        //     temp1->val = st.top();
+        //     st.pop();
+        //     temp1 = temp1->next;
+        // }
+
+        // return head;
+
+        ListNode* temp = head ;
+        ListNode* prev = NULL;
+        ListNode* front;
 
         while(temp != NULL){
-            st.push(temp->val);
-            temp = temp->next;
+            front = temp->next;
+            temp->next = prev;
+            prev = temp;
+            temp = front;
         }
+        return prev;
 
-        ListNode* temp1 = head;
-        while(temp1 != NULL){
-            temp1->val = st.top();
-            st.pop();
-            temp1 = temp1->next;
-        }
+       
 
-        return head;
+
         
         
     }
