@@ -34,22 +34,31 @@ public:
 
         // return head;
 
-        ListNode* temp = head ;
-        ListNode* prev = NULL;
-        ListNode* front;
+       // Optimize approach - Iterative
+        // ListNode* temp = head ;
+        // ListNode* prev = NULL;
+        // ListNode* front;
 
-        while(temp != NULL){
-            front = temp->next;
-            temp->next = prev;
-            prev = temp;
-            temp = front;
+        // while(temp != NULL){
+        //     front = temp->next;
+        //     temp->next = prev;
+        //     prev = temp;
+        //     temp = front;
+        // }
+        // return prev;
+
+        //Recursive approach 
+        if(head == NULL|| head->next == NULL){
+            return head;
         }
-        return prev;
+
+        ListNode* newHead = reverseList(head->next);
+        ListNode* front = head->next;
+        front->next = head;
+        head->next = NULL;
+        return newHead;
 
        
-
-
-        
         
     }
 };
