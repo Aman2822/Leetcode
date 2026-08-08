@@ -20,23 +20,42 @@ public:
         //Optimize approach
         int i = 0 , j = n-1;
         int min_height = 0;
-        while(i < j){
-            if(height[i] < height[j]){
-               min_height = height[i]*(j-i);
-               i++;
-            }
-            else if(height[i] > height[j]){
-                min_height = height[j] * (j-i);
+        // while(i < j){
+        //     if(height[i] < height[j]){
+        //        min_height = height[i]*(j-i);
+        //        i++;
+        //     }
+        //     else if(height[i] > height[j]){
+        //         min_height = height[j] * (j-i);
+        //         j--;
+        //     }
+        //     else{
+        //         min_height =  height[i]*(j-i);
+        //         i++;
+        //         j--;
+        //     }
+        //     max_water = max(max_water , min_height);
+        // }
+
+        // return max_water;
+
+        //Code clean and optimal
+
+        while( i < j){
+            int min_height = min(height[i] , height[j]);
+            int width = j - i;
+            max_water = max(max_water , min_height*width);
+            if(height[i] > height[j]){
                 j--;
             }
+            else if(height[i] < height[j]){
+                i++;
+            }
             else{
-                min_height =  height[i]*(j-i);
                 i++;
                 j--;
             }
-            max_water = max(max_water , min_height);
         }
-
         return max_water;
         
     }
