@@ -9,20 +9,38 @@ public:
         //return *min_element(nums.begin() , nums.end());
 
         // optimized approach
-        int n = nums.size();
-        int low  = 0 , high = n - 1;
+         int n = nums.size();
+        // int low  = 0 , high = n - 1;
 
-        while(low < high){
+        // while(low < high){
+        //     int mid = low + (high - low)/2;
+        //     if(nums[mid] > nums[high] ){
+        //        low = mid + 1;
+        //     }
+        //     else{
+        //         high = mid;
+        //     }
+
+        // }
+        // return nums[low];
+
+        // One more binary search approach
+        int low = 0 , high = n - 1;
+        int min_ele  = INT_MAX;
+
+        while(low <= high){
             int mid = low + (high - low)/2;
-            if(nums[mid] > nums[high] ){
+             // Identify the sorted part take the min value of and eliminate that part
+            if(nums[low] <= nums[mid]){     
+               min_ele = min(min_ele , nums[low]);
                low = mid + 1;
             }
             else{
-                high = mid;
+                min_ele = min(min_ele , nums[mid]);
+                high = mid - 1;
             }
-
         }
-        return nums[low];
+        return min_ele;
 
 
 
