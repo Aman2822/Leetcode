@@ -30,6 +30,11 @@ public:
 
         while(low <= high){
             int mid = low + (high - low)/2;
+            //If the search space is sorted then there is no need of binary search
+            if(nums[low] <= nums[high]){
+                min_ele = min(min_ele , nums[low]);
+                break;
+            }
              // Identify the sorted part take the min value of and eliminate that part
             if(nums[low] <= nums[mid]){     
                min_ele = min(min_ele , nums[low]);
