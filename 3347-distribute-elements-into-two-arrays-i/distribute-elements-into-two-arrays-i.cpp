@@ -13,17 +13,18 @@ public:
             else arr2.push_back(nums[i]);
         }
 
-
-        vector<int> result;
-        for(int i = 0 ; i < arr1.size() ; i++){
-           result.push_back(arr1[i]);
-        }
+        // vector<int> result;
+        // for(int i = 0 ; i < arr1.size() ; i++){
+        //    result.push_back(arr1[i]);
+        // }
 
         for(int i = 0 ; i < arr2.size() ; i++){
-           result.push_back(arr2[i]);
+           arr1.push_back(arr2[i]);
         }
 
-        return result;
+        // return result;
+
+        return arr1;
     
 
 
