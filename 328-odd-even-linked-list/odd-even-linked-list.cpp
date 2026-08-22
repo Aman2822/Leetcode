@@ -19,27 +19,21 @@ public:
 
         // Traverse through odd data;
         ListNode* temp = head;
-        while (temp != NULL) {
+        while (temp != NULL && temp->next != NULL) {
             data.push_back(temp->val);
-            // if this if statement condition we can cannot break last odd node
-            // data
-            if (temp->next != NULL) {
-                temp = temp->next->next;
-            } else {
-                break;
-            }
+            temp = temp->next->next;
         }
+        if(temp) data.push_back(temp->val);
+
         //Traverse through even nodes
         temp = head->next;
-        while (temp != NULL) {
+        while (temp != NULL && temp->next != NULL) {
             data.push_back(temp->val);
-            // if this if statement condition we can cannot break last even node data
-            if (temp->next != NULL) {
-                temp = temp->next->next;
-            } else {
-                break;
-            }
+            temp = temp->next->next;
         }
+        if(temp) data.push_back(temp->val);
+
+
         temp = head;
         for(int i = 0 ; i < data.size() ; i++){
            temp->val = data[i];
