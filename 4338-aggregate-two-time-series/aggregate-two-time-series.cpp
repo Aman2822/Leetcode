@@ -10,6 +10,7 @@ public:
         int i = 0, j = 0;
 
         while (i < m && j < n) {
+            //when both timestamps are equal we have to move forward i and j
             if (series1[i][0] == series2[j][0]) {
                 int val = series1[i][1] + series2[j][1];
                 vector<int> timestamp = {series1[i][0], val};
@@ -17,13 +18,13 @@ public:
                 i++;
                 j++;
             } 
-            else if (series1[i][0] <= series2[j][0]) {
+            else if (series1[i][0] < series2[j][0]) {
                 int val = series1[i][1] + series2[j][1];
                 vector<int> timestamp = {series1[i][0], val};
                 aggregrate.push_back(timestamp);
                 i++;
             } 
-            else if (series1[i][0] >= series2[j][0]) {
+            else if (series1[i][0] > series2[j][0]) {
                 int val = series1[i][1] + series2[j][1];
                 vector<int> timestamp = {series2[j][0], val};
                 aggregrate.push_back(timestamp);
@@ -31,14 +32,14 @@ public:
             }
         }
 
-        while (i < m && aggregrate.back()[0] < series1[i][0]) {
+        while (i < m ) {
             int val = series1[i][1] ;
             vector<int> timestamp = {series1[i][0], val};
             aggregrate.push_back(timestamp);
             i++;
         }
 
-        while (j < n  && aggregrate.back()[0] < series2[j][0]) {
+        while (j < n ) {
             int val = series2[j][1];
             vector<int> timestamp = {series2[j][0], val};
             aggregrate.push_back(timestamp);
