@@ -13,9 +13,9 @@ public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
         vector<int> ans = {-1, -1};
 
-        if (head == NULL || head->next == NULL || head->next->next == NULL) {
-            return ans;
-        }
+        // if (head == NULL || head->next == NULL || head->next->next == NULL) {
+        //     return ans;
+        // }
 
         vector<int> allnodes;
         // ListNode* prev = head;
@@ -32,12 +32,10 @@ public:
         vector<int> critical;
 
         for (int i = 1; i < allnodes.size() - 1; i++) {
-            if (allnodes[i] > allnodes[i - 1] &&
-                allnodes[i] > allnodes[i + 1]) {
+            if (allnodes[i] > allnodes[i - 1] && allnodes[i] > allnodes[i + 1]) {
                 critical.push_back(i);
             }
-            if (allnodes[i] < allnodes[i - 1] &&
-                allnodes[i] < allnodes[i + 1]) {
+            if (allnodes[i] < allnodes[i - 1] && allnodes[i] < allnodes[i + 1]) {
                 critical.push_back(i);
             }
         }
@@ -51,7 +49,7 @@ public:
         // cout << max_diff << endl;
 
         int min_diff = INT_MAX;
-        for (int i = 1; i < critical.size(); ++i) {
+        for (int i = 1; i < critical.size(); i++) {
             min_diff = min(min_diff, critical[i] - critical[i - 1]);
         }
         // cout << min_diff << endl;
