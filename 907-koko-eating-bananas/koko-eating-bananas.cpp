@@ -5,7 +5,8 @@ public:
         ll sum = 0;
 
         for(int i = 0 ; i < piles.size() ; i++){
-            sum += (piles[i] + hourly - 1) / hourly;
+            //sum += (piles[i] + hourly - 1) / hourly;
+            sum +=  ceil((double) piles[i] /(double) hourly);
         }
 
         // cout << sum << endl;
