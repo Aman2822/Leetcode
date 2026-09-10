@@ -5,7 +5,7 @@ public:
         int n = nums.size();
         ll total = 0;
 
-        for(int num : nums){        //Calculate the total sum of array
+        for(int &num : nums){        //Calculate the total sum of array
             total += num;
         }
 
