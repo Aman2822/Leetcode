@@ -24,7 +24,7 @@ public:
         // return result;
 
         //Approach 2 - Using map
-        set<int> ans;
+        unordered_set<int> ans;
         vector<int> mp(10 , 0);  //Created a map with size 10 intilaized to 0
         
         for(int &nums : digits){
@@ -53,8 +53,8 @@ public:
             }
             mp[i]++;
         }
-
         vector<int> result(ans.begin() , ans.end());
+        sort(begin(result) , end(result));
         return result;
     }
 };
