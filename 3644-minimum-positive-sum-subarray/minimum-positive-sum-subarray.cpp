@@ -9,6 +9,7 @@ public:
             int len = j-i+1;
             int sum = 0;
             if(len >= l && len <= r){
+                //i be starting index of subarray and j be ending index of subarray
                for(int k = i ; k <= j ; k++){
                 sum += nums[k];
                }
