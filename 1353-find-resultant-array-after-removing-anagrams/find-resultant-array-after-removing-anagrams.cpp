@@ -1,8 +1,8 @@
 class Solution {
 public:
-    bool anagram(string &s ,string &p){
+    string anagram(string &s){
         int arr[26] = {0};
-        int nums[26] = {0};
+        // int nums[26] = {0};
 
         for(char &ch : s){
             arr[ch - 'a']++;
@@ -18,23 +18,25 @@ public:
             }
         }
 
-        for(char &ch : p){
-            nums[ch - 'a']++;
-        }
+        return formed;
 
-        string formed1 = " ";
+        // for(char &ch : p){
+        //     nums[ch - 'a']++;
+        // }
 
-        for(int i = 0 ; i < 26 ; i++){
-            int freq = nums[i];
+        // string formed1 = " ";
 
-            if(freq > 0){
-                formed1 += string(freq , i+'a');
-            }
-        }
+        // for(int i = 0 ; i < 26 ; i++){
+        //     int freq = nums[i];
 
-        if(formed == formed1) return true;
+        //     if(freq > 0){
+        //         formed1 += string(freq , i+'a');
+        //     }
+        // }
 
-        return false;
+        // if(formed == formed1) return true;
+
+        // return false;
     }
 
 
@@ -47,9 +49,16 @@ public:
             string curr = words[i];
             string prev = words[i-1];
 
-            bool check = anagram(curr , prev);
+            // bool check = anagram(curr , prev);
 
-            if(!check){
+            // if(!check){
+            //     ans.push_back(curr);
+            // }
+
+            string formed = anagram(curr);
+            string formed1 = anagram(prev);
+
+            if(formed != formed1){
                 ans.push_back(curr);
             }
         }
