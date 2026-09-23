@@ -15,26 +15,38 @@ public:
 
         // return -1;
 
-        //Approach 2 - Bit Manipulation
+        //Approach 2 - Bit Manipulation - TC = O(N * 32) and SC - O(1)
         int n = nums.size();
-        int ans  = 0; 
+        // int ans  = 0; 
 
-        //Count every place one's if its divisible by 3 if yes then add to the ans 
+        // //Count every place one's if its divisible by 3 if yes then add to the ans 
 
-        for(int bitIdx = 0 ; bitIdx < 32 ; bitIdx++){
-           int cnt = 0;
-           for(int i = 0 ; i < n ; i++){
-            if(nums[i] & (1 << bitIdx)){
-                cnt++;
+        // for(int bitIdx = 0 ; bitIdx < 32 ; bitIdx++){
+        //    int cnt = 0;
+        //    for(int i = 0 ; i < n ; i++){
+        //     if(nums[i] & (1 << bitIdx)){
+        //         cnt++;
+        //     }
+        //    }
+
+        //    if(cnt % 3 == 1){
+        //     ans = ans | (1 << bitIdx);
+        //    }
+        // }
+
+        // return ans;
+
+        
+        //Approach 3 -  Sorting and checking every middle ele - TC = O(N * log N) + n/3  SC = O(1)
+        sort(begin(nums) , end(nums));
+
+        for(int i = 1 ; i < n ; i = i + 3){
+            if(nums[i-1] != nums[i]){
+                return nums[i-1];
             }
-           }
-
-           if(cnt % 3 == 1){
-            ans = ans | (1 << bitIdx);
-           }
         }
 
-        return ans;
+        return nums[n-1];
         
 
 
