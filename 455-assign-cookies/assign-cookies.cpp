@@ -4,24 +4,6 @@ public:
         sort(begin(g) , end(g));
         sort(begin(s) , end(s));
 
-        // int n = s.size();
-        // int m = g.size();
-        // int ans = 0;
-        // int i = 0 , j = 0;
-
-        // while( i < n && j < m){
-        //     if(g[i] >= s[j]){
-        //         ans++;
-        //         i++;
-        //         j++;
-        //     }
-        //     else if(s[i] < g[j]){
-        //         j++;
-        //     }
-        // }
-
-        // return ans;
-
         int ans = 0;
         int n = g.size();
         int m = s.size();
@@ -29,7 +11,8 @@ public:
         int i = 0 , j = 0;
 
         while(i < n && j < m){
-            // cout << s[i] <<  " " << g[j] << endl;
+            //whenever the greed of a student is less than current cookie then 
+            //increment  g[i] pointer and and increment the ans
             if(g[i] <= s[j]){
                 ans++;
                 i++;
