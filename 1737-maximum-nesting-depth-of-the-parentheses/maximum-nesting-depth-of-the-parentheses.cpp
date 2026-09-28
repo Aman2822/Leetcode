@@ -1,19 +1,16 @@
 class Solution {
 public:
     int maxDepth(string s) {
-        int l = s.length();
+        int n = s.length();
+        int ans = 0;
         int cnt = 0;
-        int max_cnt = INT_MIN;
-        int leftBracket = 0 , rightBracket = 0;
 
-        for(int i = 0 ; i < l ; i++){
-            if(s[i] == '(') leftBracket++;
-            else if(s[i] == ')') rightBracket++;
-            int count = leftBracket - rightBracket;
-            max_cnt = max(max_cnt , count);
+        for(int i = 0 ; i < n ; i++){
+            if(s[i] == '(') cnt++;
+            else if(s[i] == ')') cnt--;
+            ans = max(ans , cnt);
         }
-        return max_cnt;
 
-    
+        return ans;
     }
 };
