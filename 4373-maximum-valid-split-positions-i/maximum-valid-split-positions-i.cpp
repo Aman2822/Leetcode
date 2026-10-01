@@ -1,5 +1,11 @@
 class Solution {
 public:
+
+ /*
+  1. we have to cslculate pref and suff gcd current array and calculate the score.
+  2. then we have to delete one element from array and then calculate pref and suff gcd array of all arrays and take the max of all arrays score
+  3. return max of curr array score and deleted arrays score and return max of it.
+ */
     int maxValidSplits(vector<int>& nums) {
         int n = nums.size();
         int score = 0;
@@ -31,28 +37,27 @@ public:
                 arr.push_back(nums[j]);
             }
             int curr = 0;
+            int m = arr.size();
 
             vector<int> pref(n-1);
-            for(int k = 0 ; k < arr.size(); k++){
+            for(int k = 0 ; k < m; k++){
                 if(k == 0) pref[k] = arr[0];
                 else pref[k] = gcd(pref[k-1] , arr[k]); 
             }
 
             vector<int> suff(n-1);
-            for(int k = arr.size() - 1 ;k >= 0; k--){
-                if(k == arr.size() - 1) suff[k] = arr[arr.size()-1];
+            for(int k = m- 1 ;k >= 0; k--){
+                if(k == m - 1) suff[k] = arr[m-1];
                 else suff[k] = gcd(suff[k+1] , arr[k]); 
             }
 
-            for(int k = 0 ; k < arr.size() - 1 ; k++){
+            for(int k = 0 ; k < m - 1 ; k++){
                 if(pref[k] == suff[k+1]){
                     curr++;
                 }
             }
 
             score1 = max(score1 , curr);
-
-
         }
 
         return max(score , score1);
