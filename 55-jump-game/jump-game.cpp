@@ -33,26 +33,42 @@ public:
 
     // }
 
-    bool canJump(vector<int>& nums) {
-        int n = nums.size();
+    // bool canJump(vector<int>& nums) {
+    //     int n = nums.size();
         
-        //Approach 2 : bottom up approach
+    //     //Approach 2 : bottom up approach
 
-        vector<bool> t(n , false);
-        t[0] = true;
+    //     vector<bool> t(n , false);
+    //     t[0] = true;
 
-        //t[i] = true : matlab hum uss i index tak pohoch sakte ho
-        //t[i] = false : we cant reach to ith index
+    //     //t[i] = true : matlab hum uss i index tak pohoch sakte ho
+    //     //t[i] = false : we cant reach to ith index
 
-        for(int i = 1 ; i < n ; i++){
-            for(int j = i - 1 ; j >=0 ; j--){
-                if(t[j] == true && j + nums[j] >= i){
-                    t[i] = true;
-                    break;
-                }
-            }
-        }
+    //     for(int i = 1 ; i < n ; i++){
+    //         for(int j = i - 1 ; j >=0 ; j--){
+    //             if(t[j] == true && j + nums[j] >= i){
+    //                 t[i] = true;
+    //                 break;
+    //             }
+    //         }
+    //     }
 
-        return t[n-1];
+    //     return t[n-1];
+    // }
+
+
+     bool canJump(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 1) return true;
+        
+       //Approach 3 : Greedy approach
+       int max_left = 0;
+
+       for(int i = 0 ;i < n ; i++){
+        if(i > max_left) return false;
+
+        max_left = max(max_left , i + nums[i]);
+       }
+       return true;
     }
 };
