@@ -4,35 +4,27 @@ public:
         int n = nums.size();
         int maxprod = INT_MIN;
 
-        // //Subarray ka ques hai toh sliding window lagta hai lekin yaha pe negative elements hai toh sliding window nhi lagega
+        //Generate all subarrays and take max product   TC = O(N^2) and SC = O(1)
 
-        // int i = 0 , j = 0;
-
-        // while(j < n){
-        //     int curr = maxProd * nums[j];
-        //     cout << curr << endl;
-        //     while(i < j && curr < maxProd){
-        //         maxProd = maxProd/nums[i];
-        //         cout << "maxProd : " << maxProd << endl; 
-        //         i++;
+        // for(int i = 0 ; i < n ; i++){
+        //     int prod = 1;
+        //     for(int j = i ; j < n ; j++){
+        //         prod *= nums[j];
+        //         maxprod = max(maxprod , prod);
         //     }
-
-        //     if(curr >= maxProd){
-        //        maxProd = max(maxProd , curr);
-        //     }
-
-        //     j++;
         // }
 
-
-        // return maxProd;
+        //Better Approach 
+        int pref = 1 , suff = 1;
 
         for(int i = 0 ; i < n ; i++){
-            int prod = 1;
-            for(int j = i ; j < n ; j++){
-                prod *= nums[j];
-                maxprod = max(maxprod , prod);
-            }
+            if(pref == 0) pref = 1;
+            if(suff == 0) suff = 1;
+
+            pref = pref * nums[i];
+            suff = suff * nums[n-i-1];
+
+            maxprod = max(maxprod , max(pref , suff));
         }
 
 
