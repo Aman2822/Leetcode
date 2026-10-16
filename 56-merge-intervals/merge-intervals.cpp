@@ -3,7 +3,7 @@ public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
         int n = intervals.size();
         sort(intervals.begin(), intervals.end());
-        vector<vector<int>> merged_Intervals;
+        vector<vector<int>> merged;
  
         // Brute force
 
@@ -29,13 +29,14 @@ public:
 
         //Optimize approach 
         for(int i = 0 ; i < n ; i++){
-            if(merged_Intervals.empty() || intervals[i][0] > merged_Intervals.back()[1]){
-                merged_Intervals.push_back(intervals[i]);
+            if(merged.empty() || merged.back()[1] < intervals[i][0]){
+                merged.push_back(intervals[i]);
             }
             else{
-                merged_Intervals.back()[1] = max(merged_Intervals.back()[1] , intervals[i][1]);
+                merged.back()[1] = max(merged.back()[1] , intervals[i][1]);
             }
         }
-        return merged_Intervals;
+        
+        return merged;
     }
 };
