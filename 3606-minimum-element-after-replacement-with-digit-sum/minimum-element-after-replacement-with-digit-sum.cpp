@@ -19,8 +19,7 @@ public:
             replace.push_back(val);
         }
 
-        int res = *min_element(replace.begin() , replace.end());
+        return *min_element(replace.begin() , replace.end());
 
-        return res;
     }
 };
